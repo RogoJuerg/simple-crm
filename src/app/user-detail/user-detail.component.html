@@ -4,10 +4,10 @@
         <h2>{{ user.firstName }} {{ user.lastName }}</h2>
         {{ user.email }}
     </div>
-    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
         <mat-icon>more_vert</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
+    <mat-menu #userMenu="matMenu">
         <button mat-menu-item (click)="editUserDetail()">Edit</button>
     </mat-menu>
 
@@ -15,10 +15,10 @@
 
 
 <mat-card class="mt-32">
-    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
         <mat-icon>more_vert</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
+    <mat-menu #addressMenu="matMenu">
         <button mat-menu-item (click)="editMenu()">Edit</button>
     </mat-menu>
     <mat-card-title>Address</mat-card-title>
