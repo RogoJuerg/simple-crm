@@ -4,18 +4,23 @@
         <h2>{{ user.firstName }} {{ user.lastName }}</h2>
         {{ user.email }}
     </div>
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit</button>
+    </mat-menu>
 
 </mat-card>
 
 
 <mat-card class="mt-32">
-    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu" (click)="openAddressDialog()">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+        <button mat-menu-item (click)="editMenu()">Edit</button>
+    </mat-menu>
     <mat-card-title>Address</mat-card-title>
     <mat-card-content>
         {{ user.street }} <br>
