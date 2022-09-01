@@ -1,4 +1,7 @@
 <mat-card class="user-detail-header">
+    <button mat-fab color="primary" class="delete-button" (click)="deleteUser()">
+        <mat-icon>delete</mat-icon>
+    </button>
     <img src="assets/img/profile.png">
     <div class="user-details">
         <h2>{{ user.firstName }} {{ user.lastName }}</h2>
@@ -27,3 +30,7 @@
         {{ user.zipCode }} {{ user.city }}
     </mat-card-content>
 </mat-card>
+
+<div *ngIf="loading" class="loading-screen">
+    <mat-spinner [diameter]="64"></mat-spinner>
+</div>

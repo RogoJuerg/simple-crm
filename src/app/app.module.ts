@@ -29,6 +29,10 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { AboutSectionComponent } from './about-section/about-section.component';
+import { HelpSectionComponent } from './help-section/help-section.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 
@@ -44,7 +48,9 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditAddressComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    AboutSectionComponent,
+    HelpSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     AngularFirestoreModule,
     MatProgressBarModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
