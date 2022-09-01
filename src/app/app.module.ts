@@ -32,6 +32,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { HelpSectionComponent } from './help-section/help-section.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EventsPageComponent } from './events-page/events-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 
@@ -50,7 +52,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     DialogEditAddressComponent,
     DialogEditUserComponent,
     AboutSectionComponent,
-    HelpSectionComponent
+    HelpSectionComponent,
+    EventsPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

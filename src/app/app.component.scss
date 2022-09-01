@@ -68,3 +68,9 @@ mat-toolbar, mat-toolbar-row  {
 .router-link-active {
     background-color: #683ab73d;
 }
+
+.menu-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
