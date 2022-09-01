@@ -34,6 +34,9 @@ import { HelpSectionComponent } from './help-section/help-section.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { EventsPageComponent } from './events-page/events-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { DialogAddEventComponent } from './dialog-add-event/dialog-add-event.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from  '@angular/material/select';
 
 
 
@@ -54,7 +57,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     AboutSectionComponent,
     HelpSectionComponent,
     EventsPageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    DialogAddEventComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

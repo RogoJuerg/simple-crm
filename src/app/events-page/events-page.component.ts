@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { User } from 'src/models/user.class';
+import { DialogAddEventComponent } from '../dialog-add-event/dialog-add-event.component';
 
 @Component({
   selector: 'app-events-page',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events-page.component.scss']
 })
 export class EventsPageComponent implements OnInit {
+  user: User = new User;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(DialogAddEventComponent);
   }
 
 }
