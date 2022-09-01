@@ -1,3 +1,22 @@
+<mat-card>
+    <table class="user-table">
+        <tr>
+            <th>Title</th>
+            <th>Due To</th>
+            <th>Clients</th>
+            <th>Description</th>
+        </tr>
+        <tr *ngFor="let event of allEvents" [routerLink]="['/user/' + event.customIdName]">
+            <td>{{ event.title }}</td>
+            <td>{{ event.dueTo }}</td>
+            <td>{{ event.selectedClient }}</td><br>
+            <p>{{ event.description }}</p>
+        </tr>
+        
+    </table>
+
+</mat-card>
+
 <button (click)="openDialog()" class="add-event-tbn" mat-fab color="primary" matTooltip="Add event">
     <mat-icon>add</mat-icon>
 </button>

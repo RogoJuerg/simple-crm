@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Event } from 'src/models/event.class';
 
 @Component({
   selector: 'app-dialog-add-event',
@@ -9,7 +10,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAddEventComponent implements OnInit {
   loading: boolean = false;
-  event: any;
+  event: Event = new Event();
+  dueTo: Date = new Date;
 
   constructor(private firestore: AngularFirestore, public dialogRef: MatDialogRef<DialogAddEventComponent>) { }
 
@@ -17,6 +19,16 @@ export class DialogAddEventComponent implements OnInit {
   }
 
   saveEvent() {
+    this.event.dueTo = this.dueTo.getTime();
+    this.event.done = false;
+    this.loading = true;
+    this.firestore
+      .collection('events')
+      .add(this.event.toJSON())
+      .then((result: any) => {
+        this.loading = false;
+        this.dialogRef.close();
+      });
 
   }
 

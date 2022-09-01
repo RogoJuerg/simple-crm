@@ -6,14 +6,14 @@
         <div>
             <mat-form-field class="mr-16 full-width" appearance="outline">
                 <mat-label>Title</mat-label>
-                <input [disabled]="loading" [(ngModel)]="event" matInput placeholder="Title">
+                <input [disabled]="loading" [(ngModel)]="event.title" matInput placeholder="Title">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Schedule Event</mat-label>
-                <input [disabled]="loading" [(ngModel)]="event" matInput placeholder="Schedule Event"
+                <input [disabled]="loading" [(ngModel)]="event.dueTo" matInput placeholder="Schedule Event"
                     [matDatepicker]="picker1">
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
@@ -23,7 +23,7 @@
         <div>
             <mat-form-field class="mr-16 full-width" appearance="fill">
                 <mat-label>Select Client</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="event.selectedClient">
                     <mat-option value="jürgen rogozin">Jürgen, Rogozin</mat-option>
                     <mat-option>Second option</mat-option>
                 </mat-select>
@@ -34,7 +34,7 @@
     <div>
         <mat-form-field class="mr-16 full-width" appearance="outline">
             <mat-label>Description</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput [(ngModel)]="event.description"></textarea>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>

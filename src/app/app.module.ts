@@ -36,7 +36,7 @@ import { EventsPageComponent } from './events-page/events-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { DialogAddEventComponent } from './dialog-add-event/dialog-add-event.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from  '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
