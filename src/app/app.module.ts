@@ -24,6 +24,10 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { environment } from '../environments/environment';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 
 
@@ -35,7 +39,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppComponent,
     DashboardComponent,
     UserComponent,
-    DialogAddUserComponent
+    DialogAddUserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
