@@ -11,17 +11,25 @@ import { Event } from 'src/models/event.class';
 export class DialogAddEventComponent implements OnInit {
   loading: boolean = false;
   event: Event = new Event();
+  allUsers: Array<any> = [];
   dueTo: Date = new Date;
+  usersToAdd: string[] = [];
 
   constructor(private firestore: AngularFirestore, public dialogRef: MatDialogRef<DialogAddEventComponent>) { }
 
   ngOnInit(): void {
+    this.firestore
+      .collection('users')
+      .valueChanges({ idField: 'customIdName' })
+      .subscribe((changes: any) => {
+        this.allUsers = changes;
+      });
   }
 
   saveEvent() {
     this.event.dueTo = this.dueTo.getTime();
-    this.event.done = false;
     this.loading = true;
+    this.event.done = false;
     this.firestore
       .collection('events')
       .add(this.event.toJSON())

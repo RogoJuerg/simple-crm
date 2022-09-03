@@ -37,6 +37,13 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { DialogAddEventComponent } from './dialog-add-event/dialog-add-event.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+
+
 
 
 
@@ -58,7 +65,8 @@ import { MatSelectModule } from '@angular/material/select';
     HelpSectionComponent,
     EventsPageComponent,
     AdminPageComponent,
-    DialogAddEventComponent
+    DialogAddEventComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +91,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

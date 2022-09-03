@@ -13,25 +13,36 @@
         <div>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Schedule Event</mat-label>
-                <input [disabled]="loading" [(ngModel)]="event.dueTo" matInput placeholder="Schedule Event"
+                <input [disabled]="loading" [(ngModel)]="dueTo" matInput placeholder="Schedule Event"
                     [matDatepicker]="picker1">
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
         </div>
+    </div>
+    <div>
 
-        <div>
-            <mat-form-field class="mr-16 full-width" appearance="fill">
-                <mat-label>Select Client</mat-label>
-                <mat-select [(ngModel)]="event.selectedClient">
-                    <mat-option value="jürgen rogozin">Jürgen, Rogozin</mat-option>
-                    <mat-option>Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <strong style="font-weight: 500;">Assigned Clients</strong>
+                </mat-panel-title>
+
+            </mat-expansion-panel-header>
+
+            <mat-selection-list class="max-height" #userList>
+                <mat-list-option *ngFor="let user of allUsers">
+                  {{user.firstName}}, {{ user.lastName }}
+                </mat-list-option>
+              </mat-selection-list>
+
+        </mat-expansion-panel>
+
+
     </div>
 
-    <div>
+    <div class="mt-32">
         <mat-form-field class="mr-16 full-width" appearance="outline">
             <mat-label>Description</mat-label>
             <textarea matInput [(ngModel)]="event.description"></textarea>

@@ -1,0 +1,47 @@
+<mat-card class="user-detail-header">
+    <button mat-fab color="primary" class="delete-button" (click)="deleteEvent()" matTooltip="Delete Event">
+        <mat-icon>delete</mat-icon>
+    </button>
+    <div class="user-details">
+        <h1>{{ event.title }}</h1>
+    </div>
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="editEventDetail()">Edit</button>
+    </mat-menu>
+
+</mat-card>
+
+
+
+<div class="mt-32">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <strong style="font-weight: 500;">Assigned Clients</strong>
+            </mat-panel-title>
+            
+            <mat-panel-description>
+                <mat-icon class="icon-small">info</mat-icon>
+                Here you can view and edit all asigned clients for this event
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-divider style="margin-bottom: 12px;"></mat-divider>
+        
+        <table class="user-table">
+            <tr>
+                <th>Name</th>
+                <th>E-Mail</th>
+            </tr>
+            <tr *ngFor="let event of allUsers">
+                <td>{{ event.selectedClient }}</td>
+                <td>{{ event.title }}</td>
+                <td>stuff</td>
+            </tr>
+        </table>
+
+
+    </mat-expansion-panel>
+</div>

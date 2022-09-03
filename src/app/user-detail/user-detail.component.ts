@@ -6,6 +6,7 @@ import { User } from 'src/models/user.class';
 import { AppComponent } from '../app.component';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -15,9 +16,10 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailComponent implements OnInit {
   userId: any = '';
   user: User = new User();
-  loading: boolean= false;
+  loading: boolean = true;
 
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog, private router: Router) { }
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog, private router: Router,
+    public load: LoadingService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
@@ -36,7 +38,7 @@ export class UserDetailComponent implements OnInit {
       .subscribe((userSub: any) => {
         this.user = new User(userSub);
       });
-      this.loading = false;
+    this.loading = true;
   }
 
 
@@ -52,16 +54,14 @@ export class UserDetailComponent implements OnInit {
     dialog.componentInstance.userId = this.userId;
   }
 
-  deleteUser() {
-    this.loading = true;
-    this.firestore
+  async deleteUser() {
+    this.load.loadingScreen = true;
+    await this.firestore
       .collection('users')
       .doc(this.userId)
       .delete();
-      setTimeout(() => {
-        this.loading = false;
-        this.navigateUserSection();
-      }, 100);
+    this.load.loadingScreen = false;
+    this.navigateUserSection();
   }
 
   navigateUserSection() {

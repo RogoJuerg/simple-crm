@@ -13,18 +13,19 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 export class UserComponent implements OnInit {
   user: User = new User();
   allUsers: Array<any> = [];
+  loading: boolean = true;
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore) { 
-    
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore) {
+
   }
 
   ngOnInit(): void {
     this.firestore
-    .collection('users')
-    .valueChanges({idField: 'customIdName'})
-    .subscribe((changes: any) => {
-      this.allUsers = changes;
-    });
+      .collection('users')
+      .valueChanges({ idField: 'customIdName' })
+      .subscribe((changes: any) => {
+        this.allUsers = changes;
+      });
 
   }
 

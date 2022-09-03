@@ -74,3 +74,15 @@ mat-toolbar, mat-toolbar-row  {
     bottom: 0;
     width: 100%;
 }
+
+.loading-screen {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

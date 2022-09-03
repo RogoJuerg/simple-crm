@@ -1,12 +1,60 @@
-.add-event-tbn {
+.user-detail-header {
+    min-height: 100px;
+    background-color: #8ab73a;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.user-details {
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100px;
+
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+.pin-right-upper-corner {
     position: absolute;
-    right: 56px;
-    bottom: 56px;
+    top: 0;
+    right: 0;
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.icon-small {
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    margin-right: 4px;
 }
 
 mat-card {
     padding-left: 0;
     padding-right: 0;
+}
+
+.add-user-tbn {
+    position: absolute;
+    right: 56px;
+    bottom: 56px;
 }
 
 .user-table {
@@ -32,17 +80,10 @@ mat-card {
 
         td {
             height: 48px;
-            max-width: 126px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
 
             &:first-child {
                 padding-left: 16px;
                 padding-right: 16px;
-            }
-            &:last-child {
-                padding-right: 18px;
             }
         }
 
@@ -57,6 +98,9 @@ mat-card {
             background-color: rgba(0, 0, 0, 0.04);
         }
     }
+
+
+
 
     th {
         color: rgba(0, 0, 0, 0.4);

@@ -45,3 +45,7 @@
   </div>
 
 </mat-drawer-container>
+
+<div *ngIf="load.loadingScreen" class="loading-screen">
+  <mat-spinner [diameter]="64"></mat-spinner>
+</div>
