@@ -35,10 +35,9 @@
                 <th>Name</th>
                 <th>E-Mail</th>
             </tr>
-            <tr *ngFor="let event of allUsers">
-                <td>{{ event.selectedClient }}</td>
-                <td>{{ event.title }}</td>
-                <td>stuff</td>
+            <tr *ngFor="let event of allEvents.selectedClient">
+                <td>{{ event.firstName }} {{ event.lastName }}</td>
+                <td>{{ event.email }}</td>
             </tr>
         </table>
 

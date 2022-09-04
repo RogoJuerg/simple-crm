@@ -26,7 +26,6 @@ export class UserComponent implements OnInit {
       .subscribe((changes: any) => {
         this.allUsers = changes;
       });
-
   }
 
   openDialog() {

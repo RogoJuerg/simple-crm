@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { firstValueFrom } from 'rxjs';
 import { Event } from 'src/models/event.class';
 
 @Component({
@@ -9,11 +11,16 @@ import { Event } from 'src/models/event.class';
   styleUrls: ['./dialog-add-event.component.scss']
 })
 export class DialogAddEventComponent implements OnInit {
+
+
   loading: boolean = false;
   event: Event = new Event();
   allUsers: Array<any> = [];
   dueTo: Date = new Date;
-  usersToAdd: string[] = [];
+
+
+
+  users = new FormControl('');
 
   constructor(private firestore: AngularFirestore, public dialogRef: MatDialogRef<DialogAddEventComponent>) { }
 
@@ -23,6 +30,7 @@ export class DialogAddEventComponent implements OnInit {
       .valueChanges({ idField: 'customIdName' })
       .subscribe((changes: any) => {
         this.allUsers = changes;
+        console.log(this.allUsers);
       });
   }
 
@@ -39,5 +47,6 @@ export class DialogAddEventComponent implements OnInit {
       });
 
   }
+
 
 }

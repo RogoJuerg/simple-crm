@@ -15,7 +15,7 @@ export class EventDetailComponent implements OnInit {
   user: User = new User;
   event: Event = new Event();
   allUsers: Array<any> = [];
-  allEvents: Array<any> = [];
+  allEvents: any = '';
   dueTo: any = '';
 
   constructor(private firestore: AngularFirestore, public load: LoadingService, private route: ActivatedRoute) { }
@@ -37,7 +37,7 @@ export class EventDetailComponent implements OnInit {
       .subscribe((eventSub: any) => {
         this.event = new Event(eventSub);
         console.log(this.event);
-        this.allUsers.push(this.event);
+        this.allEvents = this.event;
       });
     this.load.loadingScreen = false;
   }
