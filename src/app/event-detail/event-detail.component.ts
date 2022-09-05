@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from 'src/models/event.class';
 import { User } from 'src/models/user.class';
 import { LoadingService } from '../loading.service';
@@ -18,7 +18,7 @@ export class EventDetailComponent implements OnInit {
   allEvents: any = '';
   dueTo: any = '';
 
-  constructor(private firestore: AngularFirestore, public load: LoadingService, private route: ActivatedRoute) { }
+  constructor(private firestore: AngularFirestore, public load: LoadingService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
@@ -36,25 +36,29 @@ export class EventDetailComponent implements OnInit {
       .valueChanges()
       .subscribe((eventSub: any) => {
         this.event = new Event(eventSub);
-        console.log(this.event);
         this.allEvents = this.event;
+        console.log(this.allEvents);
       });
     this.load.loadingScreen = false;
   }
 
-  deleteEvent() {
+  async deleteEvent() {
     this.load.loadingScreen = true;
-    setInterval(() => {
-      this.load.loadingScreen = false;
-    }, 2000)
+    await this.firestore
+      .collection('events')
+      .doc(this.eventId)
+      .delete();
+    this.load.loadingScreen = false;
+    // this.navigateUserSection();
+    }
+
+    editEventDetail() {
+
+    }
+
+    navigateUserSection() {
+      this.router.navigate(['/events']);
+    }
+
   }
 
-  editEventDetail() {
-
-  }
-
-  editMenu() {
-
-  }
-
-}
