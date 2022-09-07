@@ -23,7 +23,6 @@ export class EventDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
       this.eventId = paramMap.get('id');
-      console.log('GOT ID', this.eventId);
       this.getUser();
     });
   }
@@ -37,7 +36,6 @@ export class EventDetailComponent implements OnInit {
       .subscribe((eventSub: any) => {
         this.event = new Event(eventSub);
         this.allEvents = this.event;
-        console.log(this.allEvents);
       });
     this.load.loadingScreen = false;
   }
@@ -49,11 +47,11 @@ export class EventDetailComponent implements OnInit {
       .doc(this.eventId)
       .delete();
     this.load.loadingScreen = false;
-    // this.navigateUserSection();
+    this.navigateUserSection();
     }
 
     editEventDetail() {
-
+      
     }
 
     navigateUserSection() {

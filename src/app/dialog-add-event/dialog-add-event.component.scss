@@ -10,3 +10,12 @@
     height: 80px;
     overflow-y: scroll;
 }
+
+.dual-fields {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mat-form-field {
+        width: 50%;
+    }
+}

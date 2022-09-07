@@ -1,5 +1,17 @@
 <mat-card>
 
+
+    <div class="pos-center">
+        <mat-form-field class="example-form-field" appearance="outline">
+            <mat-label>search by first name or last name</mat-label>
+            <input matInput type="text" [(ngModel)]="inputValue">
+            <button *ngIf="inputValue" matSuffix mat-icon-button aria-label="Clear" (click)="inputValue=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+
     <table class="user-table">
         <tr>
             <th>Name</th>
@@ -7,12 +19,11 @@
             <th>City</th>
         </tr>
         <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.customIdName]">
-            <td>{{ user.firstName }}, {{ user.lastName }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.city }}</td>
+            <td *ngIf="user.firstName.toLowerCase().includes(inputValue) || user.lastName.toLowerCase().includes(inputValue)">{{ user.firstName }}, {{ user.lastName }}</td>
+            <td *ngIf="user.firstName.toLowerCase().includes(inputValue) || user.lastName.toLowerCase().includes(inputValue)">{{ user.email }}</td>
+            <td *ngIf="user.firstName.toLowerCase().includes(inputValue) || user.lastName.toLowerCase().includes(inputValue)">{{ user.city }}</td>
         </tr>
     </table>
-
 </mat-card>
 
 <button (click)="openDialog()" class="add-user-tbn" mat-fab color="primary" matTooltip="Add user">

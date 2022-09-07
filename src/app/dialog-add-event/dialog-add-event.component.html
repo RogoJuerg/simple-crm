@@ -10,32 +10,33 @@
             </mat-form-field>
         </div>
 
-        <div>
-            <mat-form-field appearance="outline" class="full-width">
+        <div class="dual-fields">
+            <mat-form-field class="mr-16" appearance="outline">
                 <mat-label>Schedule Event</mat-label>
                 <input [disabled]="loading" [(ngModel)]="dueTo" matInput placeholder="Schedule Event"
-                    [matDatepicker]="picker1">
+                    [matDatepicker]="picker1" required>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Scedule Time</mat-label>
+                <mat-select [(ngModel)]="event.time">
+                    <mat-option *ngFor="let time of sceduleTimes" [value]="time">{{time}}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
     </div>
     <div>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Clients</mat-label>
             <mat-select [(ngModel)]="event.selectedClient" multiple>
-                <!-- <mat-select-trigger> -->
-                    <!-- {{users.value?.[0] || ''}} -->
-                    <!-- <span *ngIf="(users.value?.length || 0) > 1" class="example-additional-selection"> -->
-                        <!-- (+{{(users.value?.length || 0) - 1}} {{users.value?.length === 2 ? 'other' : 'others'}}) -->
-                    <!-- </span> -->
-                <!-- </mat-select-trigger> -->
                 <mat-option *ngFor="let user of allUsers" [value]="user">{{user.firstName}} {{user.lastName}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
 
-    <div class="mt-32">
+    <div>
         <mat-form-field class="mr-16 full-width" appearance="outline">
             <mat-label>Description</mat-label>
             <textarea matInput [(ngModel)]="event.description"></textarea>

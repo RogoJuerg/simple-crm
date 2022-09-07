@@ -15,21 +15,20 @@
 </mat-card>
 
 
-
 <div class="mt-32">
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <strong style="font-weight: 500;">Assigned Clients</strong>
             </mat-panel-title>
-            
+
             <mat-panel-description>
                 <mat-icon class="icon-small">info</mat-icon>
                 Here you can view and edit all asigned clients for this event
             </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-divider style="margin-bottom: 12px;"></mat-divider>
-        
+
         <table class="user-table">
             <tr>
                 <th>Name</th>
@@ -40,7 +39,29 @@
                 <td>{{ event.email }}</td>
             </tr>
         </table>
-
-
     </mat-expansion-panel>
+</div>
+
+<div class="mt-32 info-section">
+    <mat-card class="card-1">
+        <h3>Sceduled Day</h3>
+        <div class="description-text-container">
+            <span>{{ event.dueTo | date}}</span>
+        </div>
+    </mat-card>
+    <mat-card class="card-2">
+        <h3>Sceduled Time</h3>
+        <div class="description-text-container">
+            <span>{{ event.time }}</span>
+        </div>
+    </mat-card>
+</div>
+
+<div class="mt-32">
+    <mat-card class="description-card">
+        <h3>Description</h3>
+        <div class="description-text-container">
+            <span>{{ event.description }}</span>
+        </div>
+    </mat-card>
 </div>

@@ -61,3 +61,13 @@ mat-card {
         text-align: start;
     }
 }
+
+.pos-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    mat-form-field {
+        width: 50%;
+    }
+}

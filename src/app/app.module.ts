@@ -42,6 +42,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -95,7 +97,9 @@ import { MatListModule } from '@angular/material/list';
     MatDividerModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

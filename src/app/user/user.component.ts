@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
+import { __values } from 'tslib';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 
@@ -15,7 +16,10 @@ export class UserComponent implements OnInit {
   allUsers: Array<any> = [];
   loading: boolean = true;
 
+  public inputValue = '';
+
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {
+    this.inputValue = this.inputValue.toLocaleLowerCase();
 
   }
 
@@ -31,5 +35,4 @@ export class UserComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
   }
-
 }
