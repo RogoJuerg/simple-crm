@@ -36,6 +36,8 @@ export class EventDetailComponent implements OnInit {
       .subscribe((eventSub: any) => {
         this.event = new Event(eventSub);
         this.allEvents = this.event;
+        console.log(eventSub);
+        
       });
     this.load.loadingScreen = false;
   }

@@ -5,6 +5,7 @@ export class Event {
     time: string;
     description: string;
     done: boolean;
+    status: string;
 
     constructor(obj?: any) {
         this.title = obj ? obj?.title : '';
@@ -13,6 +14,7 @@ export class Event {
         this.time = obj ? obj.time : '';
         this.description = obj ? obj?.description : '';
         this.done = obj ? obj?.done : '';
+        this.status = obj ? obj?.status : '';
     }
 
     public toJSON() {
@@ -22,7 +24,8 @@ export class Event {
             selectedClient: this.selectedClient,
             time: this.time,
             description: this.description,
-            done: this.done
+            done: this.done,
+            status: this.status
         };
     }
 

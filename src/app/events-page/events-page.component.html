@@ -5,16 +5,27 @@
             <th>Due To</th>
             <th>Clients</th>
             <th>Description</th>
+            <th>Status</th>
         </tr>
         <tr *ngFor="let event of allEvents; let i = index" [routerLink]="['/events/' + event.customIdName]">
             <td>{{ event.title }}</td>
             <td>{{ showDate(i) }}</td>
-            <td><p class="max-characters-short" *ngFor="let user of event.selectedClient">{{ user.firstName }} {{ user.lastName }}</p></td>
+            <td>
+                <p class="max-characters-short" *ngFor="let user of event.selectedClient">{{ user.firstName }} {{
+                    user.lastName }}</p>
+            </td>
             <td class="max-characters">{{ event.description }}</td>
+            <td>
+                <span [ngClass]="{
+                'red' : event.status == 'progress', 
+                'yellow' : event.status == 'soon', 
+                'green' : event.status == 'done'}" class="dot">
+                </span>
+            </td>
         </tr>
-        
+
     </table>
-<mat-divider></mat-divider>
+    <mat-divider></mat-divider>
 </mat-card>
 
 <button (click)="openDialog()" class="add-event-tbn" mat-fab color="primary" matTooltip="Add event">

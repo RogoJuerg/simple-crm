@@ -39,6 +39,7 @@ export class DialogAddEventComponent implements OnInit {
     this.event.dueTo = this.dueTo.getTime();
     this.loading = true;
     this.event.done = false;
+    this.event.status = 'progress';
     this.firestore
       .collection('events')
       .add(this.event.toJSON())

@@ -45,6 +45,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -99,7 +101,9 @@ import { MatTableModule } from '@angular/material/table';
     MatCheckboxModule,
     MatListModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

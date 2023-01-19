@@ -80,3 +80,27 @@ mat-card {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid gray;
+  }
+
+  .red {
+    background-color: red;
+  }
+  .yellow {
+    background-color: yellow;
+  }
+  .green {
+    background-color: green;
+  }
+
+  .adjust-center {
+    display: flex;
+    align-items: center;
+  }

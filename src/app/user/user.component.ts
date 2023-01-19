@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   public inputValue = '';
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {
-    this.inputValue = this.inputValue.toLocaleLowerCase();
+
 
   }
 
@@ -29,6 +29,7 @@ export class UserComponent implements OnInit {
       .valueChanges({ idField: 'customIdName' })
       .subscribe((changes: any) => {
         this.allUsers = changes;
+        this.allUsers.sort((a, b) => a.firstname.localeCompare(b.firstname))
       });
   }
 
