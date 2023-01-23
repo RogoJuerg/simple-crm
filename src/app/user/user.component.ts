@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
       .valueChanges({ idField: 'customIdName' })
       .subscribe((changes: any) => {
         this.allUsers = changes;
-        this.allUsers.sort((a, b) => a.firstname.localeCompare(b.firstname))
+        this.allUsers.sort((a, b) => a.firstname - b.firstname)
       });
   }
 

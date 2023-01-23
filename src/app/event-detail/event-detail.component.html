@@ -49,6 +49,17 @@
             <span>{{ event.dueTo | date }}</span>
         </div>
     </mat-card>
+    <button mat-raised-button class="status-card" (click)="changeStatus()">
+        <div class="card-middle">
+            <h3>Status</h3>
+            <span [ngClass]="{
+            'red' : event.status == 'progress', 
+            'yellow' : event.status == 'soon', 
+            'green' : event.status == 'done'}" class="dot">
+            </span>
+            <p class="border-none">{{ event.status }}</p>
+        </div>
+    </button>
     <mat-card class="card-2">
         <h3>Sceduled Time</h3>
         <div class="description-text-container">

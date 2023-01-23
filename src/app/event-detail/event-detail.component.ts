@@ -37,7 +37,7 @@ export class EventDetailComponent implements OnInit {
         this.event = new Event(eventSub);
         this.allEvents = this.event;
         console.log(eventSub);
-        
+
       });
     this.load.loadingScreen = false;
   }
@@ -50,15 +50,35 @@ export class EventDetailComponent implements OnInit {
       .delete();
     this.load.loadingScreen = false;
     this.navigateUserSection();
-    }
+  }
 
-    editEventDetail() {
-      
-    }
-
-    navigateUserSection() {
-      this.router.navigate(['/events']);
-    }
+  editEventDetail() {
 
   }
+
+  navigateUserSection() {
+    this.router.navigate(['/events']);
+  }
+
+  async changeStatus() {
+    this.checkStatus();
+    await this.firestore
+      .collection('events')
+      .doc(this.eventId)
+      .update(this.event.toJSON())
+      .then(() => {
+      });
+  }
+
+  checkStatus() {
+    if (this.event.status == 'progress') {
+      this.event.status = 'soon';
+    } else if (this.event.status == 'soon') {
+      this.event.status = 'done'
+    } else if (this.event.status == 'done') {
+      this.event.status = 'progress'
+    }
+  }
+
+}
 

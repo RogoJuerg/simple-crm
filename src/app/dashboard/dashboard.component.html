@@ -1,14 +1,27 @@
 <div>
-    <h2>TODO:</h2>
-    <h3>Upcoming Event</h3>
-
-
-    <div>
-        <h3>If you need a motivational boost get a quote here!</h3>
-        <button (click)="loadApi()">Get Quote</button>
-        <div *ngFor="let post of posts">
-            {{ post.text }}
-            {{ post.author }}
+    <h1>Welcome _USERNAME_</h1>
+    <div class="upcoming-events">
+        <h2>Upcoming Events:</h2>
+        <div class="upcoming-events-card">
+            <tr *ngFor="let event of allEvents; let i = index" [routerLink]="['/events/' + event.customIdName]">
+                <button mat-raised-button matTooltip="Jump to detailed view" matTooltipClass="example-tooltip-uppercase"
+                    aria-label="Button that shows a red tooltip" class="card">
+                    <h3>{{ event.title }}</h3>
+                    <strong>{{ showDate(i) }}</strong>
+                </button>
+            </tr>
         </div>
+    </div>
+
+
+    <div class="motivation-container">
+        <h3>If you need a motivational boost get a quote here!</h3>
+        <button mat-raised-button (click)="chooseRandomQuote()">Get Quote</button>
+        <mat-card class="quote-card">
+            <div>
+                {{ randomQuote.text }}
+                {{ randomQuote.author }}
+            </div>
+        </mat-card>
     </div>
 </div>

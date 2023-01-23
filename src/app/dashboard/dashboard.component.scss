@@ -1,0 +1,32 @@
+.upcoming-events {
+    display: flex;
+    flex-direction: column;
+
+    .upcoming-events-card {
+        display: flex;
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 12px;
+            width: 200px;
+        }
+    }
+}
+
+.motivation-container {
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 90%;
+    height: 200px;
+
+    .quote-card {
+        margin: 24px;
+    }
+}
